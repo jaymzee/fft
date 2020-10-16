@@ -6,6 +6,13 @@
 #define M_PI 3.14159265358979323846
 #endif
 
+static int ilog2(int x)
+{
+    int y = 0;
+    while (x >>= 1) y++;
+    return y;
+}
+
 static double complex twiddle(int N)
 {
     return cexp(I * 2 * M_PI / N);
@@ -138,7 +145,7 @@ static unsigned int reverse_bits(register unsigned int x, int w)
 /* array length N must be a power of 2 */
 void shuffle(double complex *out, const double complex *in, const int N)
 {
-    const int w = log2(N);
+    const int w = ilog2(N);
 
     if (out != in) {
         // assume distinct non-overlapping arrays
@@ -168,7 +175,7 @@ void shuffle(double complex *out, const double complex *in, const int N)
 */
 void fft_iter(double complex *x, const int N)
 {
-    const int log2N = log2(N);
+    const int log2N = ilog2(N);
     double complex W, t, u;
 
     for (int s = 1; s <= log2N; ++s) {
@@ -195,7 +202,7 @@ void fft_iter(double complex *x, const int N)
 */
 void ifft_iter(double complex *X, const int N)
 {
-    const int log2N = log2(N);
+    const int log2N = ilog2(N);
     double complex W, t, u;
 
     for (int s = 1; s <= log2N; ++s) {

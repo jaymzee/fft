@@ -7,6 +7,13 @@
 namespace fft
 {
 
+inline int ilog2(int x)
+{
+    int y = 0;
+    while (x >>= 1) y++;
+    return y;
+}
+
 template <class T>
 inline std::complex<T> twiddle(int N)
 {
@@ -144,7 +151,7 @@ inline unsigned int reverse_bits(unsigned int x, int w)
 template <class T>
 void shuffle(std::complex<T> *y, const std::complex<T> *x, const int N)
 {
-    const int w = log2(N);
+    const int w = ilog2(N);
 
     if (y != x) {
         // assume distinct non-overlapping arrays
@@ -170,7 +177,7 @@ void shuffle(std::complex<T> *y, const std::complex<T> *x, const int N)
 template <class T>
 void fft_iter(std::complex<T> *x, const int N)
 {
-    const int log2N = log2(N);
+    const int log2N = ilog2(N);
     std::complex<T> W, t, u;
 
     for (int s = 1; s <= log2N; ++s) {
@@ -198,7 +205,7 @@ void fft_iter(std::complex<T> *x, const int N)
 template <class T>
 void ifft_iter(std::complex<T> *X, const int N)
 {
-    const int log2N = log2(N);
+    const int log2N = ilog2(N);
     std::complex<T> W, t, u;
 
     for (int s = 1; s <= log2N; ++s) {
