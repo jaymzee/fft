@@ -16,16 +16,16 @@
 * N log N time complexity
 * based on the [Cooley-Tukey FFT algorithm] (Radix-2 DIT case)
 ```
-X0,...,N−1 ← ditfft2(x, N, s):             DFT of (x0, xs, x2s, ..., x(N-1)s):
+X[0,...,N−1] ← ditfft2(x, N, s):             DFT of (x0, xs, x2s, ..., x(N-1)s):
     if N = 1 then
-        X0 ← x0                                      trivial size-1 DFT base case
+        X[0] ← x[0]                                    trivial size-1 DFT base case
     else
-        X0,...,N/2−1 ← ditfft2(x, N/2, 2s)             DFT of (x0, x2s, x4s, ...)
-        XN/2,...,N−1 ← ditfft2(x+s, N/2, 2s)           DFT of (xs, xs+2s, xs+4s, ...)
-        for k = 0 to N/2−1 do                        combine DFTs of two halves into full DFT:
-            t ← Xk
-            Xk ← t + exp(−2πi k/N) Xk+N/2
-            Xk+N/2 ← t − exp(−2πi k/N) Xk+N/2
+        X[0,...,N/2−1] ← ditfft2(x, N/2, 2s)           DFT of (x0, x2s, x4s, ...)
+        X[N/2,...,N−1] ← ditfft2(x+s, N/2, 2s)         DFT of (xs, xs+2s, xs+4s, ...)
+        for k = 0 to N/2−1 do                          combine DFTs of two halves into full DFT:
+            t ← X[k]
+            X[k] ← t + exp(−2πi k/N) X[k]+N/2
+            X[k+N/2] ← t − exp(−2πi k/N) X[k]+N/2
         end for
     end if
 ```
