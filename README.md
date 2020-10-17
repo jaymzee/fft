@@ -14,6 +14,21 @@
 ### *fft_rec* Fast Fourier Transform
 * recursive
 * N log N time complexity
+* based on the [Cooley-Tukey FFT algorithm] (Radix-2 DIT case)
+```
+X0,...,N−1 ← ditfft2(x, N, s):             DFT of (x0, xs, x2s, ..., x(N-1)s):
+    if N = 1 then
+        X0 ← x0                                      trivial size-1 DFT base case
+    else
+        X0,...,N/2−1 ← ditfft2(x, N/2, 2s)             DFT of (x0, x2s, x4s, ...)
+        XN/2,...,N−1 ← ditfft2(x+s, N/2, 2s)           DFT of (xs, xs+2s, xs+4s, ...)
+        for k = 0 to N/2−1 do                        combine DFTs of two halves into full DFT:
+            t ← Xk
+            Xk ← t + exp(−2πi k/N) Xk+N/2
+            Xk+N/2 ← t − exp(−2πi k/N) Xk+N/2
+        end for
+    end if
+```
 
 ### *ifft_rec* Fast Fourier Transform
 * recursive
@@ -23,9 +38,32 @@
 * iterative
 * in place
 * N log N time complexity
+* based on [Cooley-Tukey FFT algorithm] (Data reordering, bit reversal, and in-place algorithms)
+```
+algorithm iterative-fft is
+    input: Array a of n complex values where n is a power of 2.
+    output: Array A the DFT of a.
+ 
+    bit-reverse-copy(a, A)
+    n ← a.length 
+    for s = 1 to log(n) do
+        m ← 2s
+        ωm ← exp(−2πi/m) 
+        for k = 0 to n-1 by m do
+            ω ← 1
+            for j = 0 to m/2 – 1 do
+                t ← ω A[k + j + m/2]
+                u ← A[k + j]
+                A[k + j] ← u + t
+                A[k + j + m/2] ← u – t
+                ω ← ω ωm
+   
+    return A
+```
 
 ### *ifft_iter* Inverse Fast Fourier Transformn place
 * iterative
 * in place
 * N log N time complexity
 
+[Cooley-Tukey FFT algorithm]:<https://en.wikipedia.org/wiki/Cooley-Tukey_FFT_algorithm>
