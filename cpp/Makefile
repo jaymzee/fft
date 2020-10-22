@@ -2,17 +2,17 @@ CC = gcc
 CXX = g++
 CFLAGS = -std=c++11 -pedantic-errors -Wall -O3
 LFLAGS =
-OBJS = test test-vector benchmark
+OBJS = TestFFT TestFFTVector BenchmarkFFT
 
 all: $(OBJS)
 
-test: test.cpp fft.hpp util.hpp
+TestFFT: TestFFT.cpp fft.hpp util.hpp
 	$(CXX) -o $@ $(CFLAGS) $<
 
-test-vector: test-vector.cpp fft-vector.hpp fft.hpp util.hpp
+TestFFTVector: TestFFTVector.cpp FFTVector.hpp fft.hpp util.hpp
 	$(CXX) -o $@ $(CFLAGS) $<
 
-benchmark: benchmark.cpp fft.hpp util.hpp
+BenchmarkFFT: BenchmarkFFT.cpp fft.hpp util.hpp
 	$(CXX) -o $@ $(CFLAGS) $<
 
 clean:
