@@ -26,13 +26,13 @@ test_fft.o: test_fft.c fft.h util.h
 benchmark_fft.o: benchmark_fft.c fft.h util.h
 	$(CC) -o $@ -c $(CFLAGS) $<
 
-TestFFT: TestFFT.cpp fft.hpp util.hpp
+TestFFT: TestFFT.cpp FFT.hpp Util.hpp
 	$(CXX) -o $@ $(CXXFLAGS) $<
 
-TestFFTVector: TestFFTVector.cpp FFTVector.hpp fft.hpp util.hpp
+TestFFTVector: TestFFTVector.cpp FFTVector.hpp FFT.hpp Util.hpp
 	$(CXX) -o $@ $(CXXFLAGS) $<
 
-BenchmarkFFT: BenchmarkFFT.cpp fft.hpp util.hpp
+BenchmarkFFT: BenchmarkFFT.cpp FFT.hpp Util.hpp
 	$(CXX) -o $@ $(CXXFLAGS) $<
 
 clean:

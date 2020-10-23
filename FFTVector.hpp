@@ -1,9 +1,9 @@
-#ifndef FFT_VECTOR_H
-#define FFT_VECTOR_H
+#ifndef FFT_FFTVECTOR_HPP_INCLUDED
+#define FFT_FFTVECTOR_HPP_INCLUDED
 
 #include <complex>
 #include <vector>
-#include "fft.hpp"
+#include "FFT.hpp"
 
 namespace fft
 {

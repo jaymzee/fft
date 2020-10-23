@@ -1,5 +1,5 @@
-#ifndef FFT_H
-#define FFT_H
+#ifndef FFT_FFT_H_INCLUDED
+#define FFT_FFT_H_INCLUDED
 
 #include <cmath>
 #include <complex>
@@ -7,6 +7,7 @@
 namespace fft
 {
 
+/* Integer Log radix-2 */
 inline int ilog2(int x)
 {
     int y = 0;
@@ -226,4 +227,5 @@ void ifft_iter(std::complex<T> *X, const int N)
 }
 
 } /* namespace fft */
-#endif /* FFT_H */
+
+#endif

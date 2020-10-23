@@ -1,5 +1,5 @@
-#ifndef FFT_H
-#define FFT_H
+#ifndef FFT_FFT_H_INCLUDED
+#define FFT_FFT_H_INCLUDED
 
 #include <complex.h>
 
@@ -56,4 +56,4 @@ void fft_iter(double complex *x, int N);
 */
 void ifft_iter(double complex *X, int N);
 
-#endif /* FFT_H */
+#endif

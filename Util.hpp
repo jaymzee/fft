@@ -1,5 +1,5 @@
-#ifndef UTIL_H
-#define UTIL_H
+#ifndef FFT_UTIL_HPP_INCLUDED
+#define FFT_UTIL_HPP_INCLUDED
 
 #include <cstdio>
 #include <iostream>
