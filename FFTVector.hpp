@@ -3,7 +3,7 @@
 
 #include <complex>
 #include <vector>
-#include "FFT.hpp"
+#include "fft.hpp"
 
 namespace fft
 {

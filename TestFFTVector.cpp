@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include "FFTVector.hpp"
-#include "Util.hpp"
+#include "util.hpp"
 
 typedef std::vector<std::complex<double>> vec_type;
 

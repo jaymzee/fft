@@ -1,7 +1,7 @@
 #include <cstdio>
 #include <complex>
-#include "FFT.hpp"
-#include "Util.hpp"
+#include "fft.hpp"
+#include "util.hpp"
 
 #define V_SIZE 4096
 std::complex<double> x[V_SIZE], X[V_SIZE];
