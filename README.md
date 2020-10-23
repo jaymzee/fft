@@ -1,7 +1,7 @@
 ## Fast Fourier Transform
 
-### C fast fourier transform library
-### C++ fast fourier transform template library
+### fourier transform functions for C
+### fourier transform templates for C++
 
 #### `dft` Discrete Fourier Transform
 - iterative
@@ -62,8 +62,9 @@ algorithm iterative-fft is
 ```
 
 #### `ifft_iter` Inverse Fast Fourier Transformn place
-* iterative
-* in place
-* N log N time complexity
+- iterative
+- in place
+- N log N time complexity
+
 
 [Cooley-Tukey FFT algorithm]:<https://en.wikipedia.org/wiki/Cooley-Tukey_FFT_algorithm>
