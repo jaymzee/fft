@@ -1,17 +1,17 @@
-# Fast Fourier Transform
+## Fast Fourier Transform
 
-## C fast fourier transform library
-## C++ fast fourier transform template library
+### C fast fourier transform library
+### C++ fast fourier transform template library
 
-### `dft` Discrete Fourier Transform
+#### `dft` Discrete Fourier Transform
 - iterative
 - N^2 time complexity
 
-### `idft` Inverse Discrete Fourier Transform
+#### `idft` Inverse Discrete Fourier Transform
 -  iterative
 - N^2 time complexity
 
-### `fft_rec` Fast Fourier Transform
+#### `fft_rec` Fast Fourier Transform
 - recursive
 - N log N time complexity
 - based on the [Cooley-Tukey FFT algorithm] (Radix-2 DIT case)
@@ -28,11 +28,11 @@
             end for
         end if
 
-### `ifft_rec` Fast Fourier Transform
+#### `ifft_rec` Fast Fourier Transform
 - recursive
 - N log N time complexity
 
-### `fft_iter` Fast Fourier Transform
+#### `fft_iter` Fast Fourier Transform
 - iterative
 - in place
 - N log N time complexity
@@ -57,7 +57,7 @@
 
         return A
 
-### `ifft_iter` Inverse Fast Fourier Transformn place
+#### `ifft_iter` Inverse Fast Fourier Transformn place
 * iterative
 * in place
 * N log N time complexity
