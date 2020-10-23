@@ -15,6 +15,7 @@
 - recursive
 - N log N time complexity
 - based on the [Cooley-Tukey FFT algorithm] (Radix-2 DIT case)
+
     X[0,...,N−1] ← ditfft2(x, N, s):             DFT of (x[0], x[s], x[2s], ..., x[(N-1)s]):
         if N = 1 then
             X[0] ← x[0]                                    trivial size-1 DFT base case
@@ -37,6 +38,7 @@
 - in place
 - N log N time complexity
 - based on [Cooley-Tukey FFT algorithm] (Data reordering, bit reversal, and in-place algorithms)
+
     algorithm iterative-fft is
         input: Array a of n complex values where n is a power of 2.
         output: Array A the DFT of a.
