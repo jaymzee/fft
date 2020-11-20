@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include "FFTVector.hpp"
+#include "fftvec.hpp"
 #include "util.hpp"
 
 typedef std::vector<std::complex<double>> vec_type;

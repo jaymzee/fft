@@ -4,7 +4,7 @@ CFLAGS = -std=c99 -pedantic-errors -Wall -O3
 CXXFLAGS = -std=c++11 -pedantic-errors -Wall -O3
 LFLAGS = -lm
 COBJS = test_fft benchmark_fft
-CXXOBJS = TestFFT TestFFTVector BenchmarkFFT
+CXXOBJS = TestFFT TestFFTvec BenchmarkFFT
 
 all: $(COBJS) $(CXXOBJS)
 
@@ -29,7 +29,7 @@ benchmark_fft.o: benchmark_fft.c fft.h util.h
 TestFFT: TestFFT.cpp fft.hpp util.hpp
 	$(CXX) -o $@ $(CXXFLAGS) $<
 
-TestFFTVector: TestFFTVector.cpp FFTVector.hpp fft.hpp util.hpp
+TestFFTVector: TestFFTvec.cpp fftvec.hpp fft.hpp util.hpp
 	$(CXX) -o $@ $(CXXFLAGS) $<
 
 BenchmarkFFT: BenchmarkFFT.cpp fft.hpp util.hpp
